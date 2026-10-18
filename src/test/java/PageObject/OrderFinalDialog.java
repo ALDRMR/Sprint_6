@@ -10,12 +10,7 @@ public class OrderFinalDialog {
         this.driver = driver;
     }
 
-    private final By OrderFinalDialogModalHeader = By.xpath("*.Order_ModalHeader");
     private final By OrderFinalDialogButton = By.xpath("//button[text()='Посмотреть статус']");
-
-    public String modelText() {
-        return driver.findElement(OrderFinalDialogModalHeader).getText();
-    }
 
     public void clickButton() {
         driver.findElement(OrderFinalDialogButton).click();

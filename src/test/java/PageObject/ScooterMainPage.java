@@ -13,7 +13,7 @@ public class ScooterMainPage {
     private final By accordionItems = By.className("accordion__item");
 
     public static final By topOrderButton = By.cssSelector("button[class^='Button_Button']:not([class*='Button_Middle'])");
-    public static final By middleOrderButton = By.cssSelector("button[class*='Button_Middle']");
+    public static final By middleOrderButton = By.cssSelector("button[class*='Button_Middle__']");
 
     public ScooterMainPage(WebDriver driver){
         this.driver = driver;
@@ -30,8 +30,4 @@ public class ScooterMainPage {
         return driver.findElements(accordionItems);
     }
 
-    public void clickCreateOrder(WebDriver driver, By button){
-      //  ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", button);
-        driver.findElement(button).click();
-    }
 }

@@ -33,7 +33,6 @@ public class ScooterMainPageTests {
         assertEquals(8, page.getFaqItems().size());
     }
 
-
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
             "Сколько это стоит? И как оплатить?               ; Сутки — 400 рублей. Оплата курьеру — наличными или картой.",

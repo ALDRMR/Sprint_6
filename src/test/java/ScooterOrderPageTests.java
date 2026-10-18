@@ -2,12 +2,12 @@ import PageObject.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 
+import static PageObject.ScooterMainPage.middleOrderButton;
 import static PageObject.ScooterMainPage.topOrderButton;
 
 public class ScooterOrderPageTests {
@@ -29,11 +29,23 @@ public class ScooterOrderPageTests {
 //        driver.get("https://qa-scooter.education-services.ru/");
 //    }
 
+    @Test
+    public void testOrderTopButton(){
+        driver.findElement(topOrderButton).click();
+        fillOrderForm();
+    }
 
     @Test
-    public void testOrder() throws InterruptedException {
-        ScooterMainPage mainPage = new ScooterMainPage(driver);
-        mainPage.clickCreateOrder(driver, topOrderButton);
+    public void testOrderMiddleButton(){
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({behavior: 'instant', block: 'start'});",
+                driver.findElement(middleOrderButton)
+        );
+        driver.findElement(middleOrderButton).click();
+        fillOrderForm();
+    }
+
+    private void fillOrderForm() {
         ScooterOrderPage orderPage = new ScooterOrderPage(driver);
 
         //first order controls
